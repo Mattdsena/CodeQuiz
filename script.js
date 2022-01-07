@@ -41,14 +41,13 @@ function showQuestion(question) {
 }
 
 function resetState() {
-
+    clearStatusClass(document.body)
     nextButton.classList.add('hide')
     while (answerButtonsElements.firstChild) {
         answerButtonsElements.removeChild
         (answerButtonsElements.firstChild)
     }
 }
-
 
 function selectAnswer(e) {
     const selectedButton = e.target
@@ -92,17 +91,17 @@ const questions = [
     {
         question: "What  I call my HTML file?",
         answers: [
-            { text: 'Index', correct: true},
+            { text: 'Index', correct: false},
             { text: 'Script', correct:false},
             { text: 'Script', correct:false},
-            { text: 'Script', correct:false}
+            { text: 'Script', correct:true}
         ]
     },
     {
         question: "What shoulll my HTML file?",
         answers: [
-            { text: 'Index', correct: true},
-            { text: 'Script', correct:false},
+            { text: 'Index', correct: false},
+            { text: 'Script', correct:true},
             { text: 'Script', correct:false},
             { text: 'Script', correct:false}
         ]
@@ -110,8 +109,8 @@ const questions = [
     {
         question: " should I call my HTML file?",
         answers: [
-            { text: 'Index', correct: true},
-            { text: 'Script', correct:false},
+            { text: 'Index', correct: false},
+            { text: 'Script', correct:true},
             { text: 'Script', correct:false},
             { text: 'Script', correct:false}
         ]
@@ -119,9 +118,9 @@ const questions = [
     {
         question: "What should I call my file?",
         answers: [
-            { text: 'Index', correct: true},
+            { text: 'Index', correct: false},
             { text: 'Script', correct:false},
-            { text: 'Script', correct:false},
+            { text: 'Script', correct:true},
             { text: 'Script', correct:false}
         ]
     },
