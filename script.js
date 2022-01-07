@@ -41,6 +41,7 @@ function showQuestion(question) {
 }
 
 function resetState() {
+
     nextButton.classList.add('hide')
     while (answerButtonsElements.firstChild) {
         answerButtonsElements.removeChild
@@ -56,7 +57,12 @@ function selectAnswer(e) {
     Array.from(answerButtonsElements.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
-    nextButton.classList.remove('hide')
+    if (shuffledQuestions.length > currentQuestionsIndex + 1) {
+        nextButton.classList.remove('hide')
+    } else {
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
+    }
 }
 
 function setStatusClass(element, correct) {
@@ -78,6 +84,53 @@ const questions = [
         question: "What should I call my HTML file?",
         answers: [
             { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false}
+        ]
+    },
+    {
+        question: "What  I call my HTML file?",
+        answers: [
+            { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false}
+        ]
+    },
+    {
+        question: "What shoulll my HTML file?",
+        answers: [
+            { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false}
+        ]
+    },
+    {
+        question: " should I call my HTML file?",
+        answers: [
+            { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false}
+        ]
+    },
+    {
+        question: "What should I call my file?",
+        answers: [
+            { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false}
+        ]
+    },
+    {
+        question: "What shoull my HTML file?",
+        answers: [
+            { text: 'Index', correct: true},
+            { text: 'Script', correct:false},
+            { text: 'Script', correct:false},
             { text: 'Script', correct:false}
         ]
     }
