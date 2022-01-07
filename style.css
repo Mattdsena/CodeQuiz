@@ -54,3 +54,7 @@ body.wrong {
     color: white;
     outline: none;
 }
+
+.btn:hover {
+    border-color: black;
+}
