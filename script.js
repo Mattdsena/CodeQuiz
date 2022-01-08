@@ -168,7 +168,7 @@ var questions = [
     },
     {
         title: "Inside which HTML element do we put the JavaScript?",
-        choices: ["<scripting>", "<script>", "<js>", "<javascript>"],
+        choices: ["<scripting>", "<js>", "<script>","<javascript>"],
         answer: "<script>"
     },
     {
@@ -178,7 +178,7 @@ var questions = [
     },
     {
         title: "How can you add a comment in JavaScript?",
-        choices: ["<!--This is a comment>", "//This is a comment", "'This is a comment'", "None of the Above"],
+        choices: ["<!--This is a comment>", "'This is a comment'", "//This is a comment", "None of the Above"],
         answer: "//This is a comment"
     },
     {
