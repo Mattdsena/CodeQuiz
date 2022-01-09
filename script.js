@@ -141,7 +141,7 @@ startQuizBtnEl.addEventListener("click", function () {
     show(quizEl);
 });
 
-// Checks is answer correct and moves to next question
+// Checks if answer correct and moves to next question
 answersEl.addEventListener("click", function (e) {
     if (e.target.matches("button")) {
         checkAnswer(e.target);
