@@ -1,3 +1,4 @@
+// Elements
 const welcomeEl = document.querySelector("#welcome");
 const startQuizBtnEl = document.querySelector("#startQuiz");
 const quizEl = document.querySelector("#quiz");
@@ -14,6 +15,7 @@ const clearScoresBtnEl = document.querySelector("#clearScores");
 const viewHScoresBtnEl = document.querySelector("#viewHScores");
 const timerEl = document.querySelector("#timer");
 
+// Variable
 var score = 0;
 var currentQ = 0;
 var highScores = [];
@@ -21,6 +23,7 @@ var interval;
 var timeGiven = 100;
 var secondsElapsed = 0;
 
+// Starts and updates the timer
 function startTimer() {
     timerEl.textContent = timeGiven;
     interval = setInterval(function () {
@@ -33,10 +36,12 @@ function startTimer() {
     }, 1000);
 }
 
+// Stops Timer
 function stopTimer() {
     clearInterval(interval);
 }
 
+// Calls for next question & for submit if last question
 function nextQuestion() {
     currentQ++;
     if (currentQ < questions.length) {
@@ -52,6 +57,7 @@ function nextQuestion() {
     }
 }
 
+// Checks answer
 function checkAnswer(answer) {
     if (questions[currentQ].answer == questions[currentQ].choices[answer.id]) {
         score += 5;
@@ -63,6 +69,7 @@ function checkAnswer(answer) {
     }
 }
 
+// Displays a message 
 function displayMessage(m) {
     let messageHr = document.createElement("hr");
     let messageEl = document.createElement("div");
@@ -73,17 +80,19 @@ function displayMessage(m) {
             messageHr.remove();
             messageEl.remove();
     }, 2000);
-
 }
 
+// Hides element
 function hide(element) {
     element.style.display = "none";
 }
 
+// Shows element
 function show(element) {
     element.style.display = "block";
 }
 
+// Resets variables
 function reset() {
     score = 0;
     currentQ = 0;
@@ -91,6 +100,7 @@ function reset() {
     timerEl.textContent = 0;
 }
 
+// Renders current question
 function renderQuestion() {
     questionEl.textContent = questions[currentQ].title;
     for (i = 0; i < answersEl.children.length; i++) {
@@ -98,8 +108,8 @@ function renderQuestion() {
     }
 }
 
+// Renders High score in local storage
 function renderHighScores() {
-    // Clear content
     scoresEl.innerHTML = "";
     show(highScoresEl);
     highScores = JSON.parse(localStorage.getItem("scores"));
@@ -113,6 +123,7 @@ function renderHighScores() {
     }
 }
 
+// Displays highscores
 viewHScoresBtnEl.addEventListener("click", function () {
     hide(welcomeEl);
     hide(quizEl);
@@ -122,6 +133,7 @@ viewHScoresBtnEl.addEventListener("click", function () {
     reset();
 });
 
+// Starts quiz
 startQuizBtnEl.addEventListener("click", function () {
     hide(welcomeEl);
     startTimer();
@@ -129,6 +141,7 @@ startQuizBtnEl.addEventListener("click", function () {
     show(quizEl);
 });
 
+// Checks is answer correct and moves to next question
 answersEl.addEventListener("click", function (e) {
     if (e.target.matches("button")) {
         checkAnswer(e.target);
@@ -136,6 +149,7 @@ answersEl.addEventListener("click", function (e) {
     }
 });
 
+// Submit high score
 submitInitialsBtnEl.addEventListener("click", function () {
     let initValue = initialsEl.value.trim();
     if (initValue) {
@@ -150,16 +164,20 @@ submitInitialsBtnEl.addEventListener("click", function () {
     }
 });
 
+// Button to go back to main page
 goBackBtnEl.addEventListener("click", function () {
     hide(highScoresEl);
     show(welcomeEl);
 });
 
+// Clears saved scores
 clearScoresBtnEl.addEventListener("click", function () {
     highScores = [];
     localStorage.setItem("scores", JSON.stringify(highScores));
     renderHighScores();
 });
+
+// Questions
 var questions = [
     {
         title: "What extension should a Javascript file be?",

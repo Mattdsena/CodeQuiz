@@ -9,21 +9,23 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+
+    <!-- Highscore & Timer Buttons -->
     <div class="container mt-5">
-     
         <button type="button" class="col-md-4 h2 btn btn-outline-info btn-lg" id="viewHScores">Highscores</button>
         <button type="button" class="col-md-4 h2 btn btn-outline-info btn-lg" style="float: right;">Time: <span id="timer">0</span></button>
-
-      
   </div>
+
+  <!-- Jumbotron for Quiz -->
   <div class="container mt-3">
-    
     <div class="jumbotron jumbotron-fluid text-center">
         <div class="container" id="welcome">
             <h1 class="h1 mb-4">Coding Quiz</h1>
             <p class="lead mb-4">Answer as many questions as possible about coding, each wrong answer you will lose time!</p>
             <button type="button" class="btn btn-info btn-lg" id="startQuiz">Start</button>
         </div>
+
+        <!-- Questions -->
         <div class="container" id="quiz">
           <h1 class="h1 mb-4" id="question"></h1>
           <div class="container" id="answers">
@@ -41,12 +43,16 @@
               </div>
           </div>
       </div>
+
+      <!-- Submit Score -->
       <div class="container" id="inputScore">
           <h1 class="h1 mb-4">Finished!</h1>
           <p class="lead mb-4">Final score: <span id="score"></span></p>
           <p class="lead mb-4">Please enter your initials: <input type="text " id="initials"></p>
           <button type="button" class="btn btn-info btn-lg" id="submitInitials">Submit</button>
       </div>
+
+      <!-- Highscores  -->
       <div class="container" id="highScores">
           <h1 class="h1 mb-4 font-weigth-bold">Highscores</h1>
           <div class="container h4 mb-4" id="scores">
